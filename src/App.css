@@ -1,0 +1,158 @@
+/* Base styles */
+.app-container {
+  display: flex;
+  flex-direction: column; /* Stack the sidebar and canvas vertically on mobile */
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 100%; /* Full width on mobile */
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-bottom: 2px solid #ddd;
+  overflow-y: auto;
+}
+
+/* Sidebar image styling */
+.sidebar-image {
+  width: 100%; /* Full width for each image on mobile */
+  height: auto;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.sidebar-image:hover {
+  transform: scale(1.05);
+}
+
+/* Canvas container styling */
+.canvas-container {
+  width: 100%; /* Full width on mobile */
+  padding: 15px;
+  position: relative;
+  background-color: #ffffff;
+}
+
+/* Canvas styling */
+.canvas {
+  position: relative;
+  width: 100%;
+  height: 60vh; /* Adjust height for mobile */
+  border: 1px solid #ddd;
+  background-color: #fafafa;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Responsive toolbox */
+.toolbox {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+  flex-wrap: wrap; /* Allow wrapping of buttons on small screens */
+}
+
+.toolbox button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toolbox button:hover {
+  background-color: #d0d0d0;
+}
+
+.toolbox button.active {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #3e8e41;
+  transform: scale(1.05);
+}
+
+.toolbox button svg {
+  vertical-align: middle;
+}
+
+/* Responsive rnd (resizable and draggable elements) */
+.rnd {
+  border: 2px solid #ddd;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.rnd:hover {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.rnd img {
+  border-radius: 8px;
+}
+
+/* Responsive pencil button */
+.pencil-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pencil-button.active {
+  background: #007bff;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (min-width: 768px) {
+  /* On tablet and above, revert to the default layout */
+  .app-container {
+    flex-direction: row; /* Sidebar on the left and canvas on the right */
+  }
+
+  .sidebar {
+    width: 25%; /* Sidebar takes 25% of the screen width */
+    border-right: 2px solid #ddd;
+    border-bottom: none; /* Remove bottom border */
+  }
+
+  .canvas-container {
+    width: 75%; /* Canvas takes the remaining 75% */
+  }
+
+  .canvas {
+    height: 80vh; /* Increase the canvas height for larger screens */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Adjustments for smaller mobile screens */
+  .sidebar-image {
+    width: 100%; /* Make images full width on mobile */
+  }
+
+  .canvas-container {
+    padding: 10px;
+  }
+
+  .canvas {
+    height: 50vh; /* Reduce canvas height for smaller screens */
+  }
+}
